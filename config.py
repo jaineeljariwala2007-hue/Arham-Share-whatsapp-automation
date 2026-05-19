@@ -3,30 +3,27 @@ Central configuration. Fill in all REQUIRED values before running.
 """
 
 # -- WhatsApp Business API ---------------------------------------------------
-WHATSAPP_API_URL = "https://graph.facebook.com/v19.0/{phone_number_id}/messages"
-PHONE_NUMBER_ID  = "YOUR_PHONE_NUMBER_ID"          # REQUIRED
-ACCESS_TOKEN     = "YOUR_WHATSAPP_ACCESS_TOKEN"     # REQUIRED
+WHATSAPP_API_URL = "https://graph.facebook.com/v25.0/{phone_number_id}/messages"
+PHONE_NUMBER_ID  = "1021459374381952"
+ACCESS_TOKEN     = "EAAfgWi8ZAFuIBRQXI3NePcoZAL5EVUilgyZAXpkCQImyknX0eZAw8504XsGgsRvNZBlBcDEb3SNeuJ6GMGLEL4lQznuH9bymABCAcAPyZCpZAGXB4bUwcW4SZCiOeHmNnjYZAH1xZBIsR0sLXsA8zX2cyNXTP42rMgJKfNQOlNBqjTZCBctYcGfIxaAks6EvmVE6RLmZCFVe0IIRFel6UEBqAiM22XVKeQkdTVn5MdZBG11maZB1VQi6bwRiMc6UPkadasdgOOQHGY3ZC5wDfYjIR0SyioZBmmQH2auLhE49qQZDZD"
 
 # Template details (must be approved in Meta Business Manager)
-TEMPLATE_NAME     = "reactivate_account"            # REQUIRED - your template name
-TEMPLATE_LANGUAGE = "en"                            # change if template is in another language
+TEMPLATE_NAME     = "reactivate_account"
+TEMPLATE_LANGUAGE = "en_US"
 
 # -- File Paths ---------------------------------------------------------------
-INACTIVE_CLIENTS_FILE = "data/inactive_clients.xlsx"   # Excel file your team updates
-MESSAGE_LOG_FILE      = "data/message_log.xlsx"         # auto-created by the script
+INACTIVE_CLIENTS_FILE = "inactive_clients.xlsx"    # Excel file your team updates
+MESSAGE_LOG_FILE      = "data/message_log.xlsx"    # auto-created by the script
 
 # Column names in inactive_clients.xlsx (case-sensitive)
 COL_CLIENT_NAME  = "Client Name"
 COL_PHONE_NUMBER = "Phone Number"      # expected format: +91XXXXXXXXXX
 
 # -- Polling ------------------------------------------------------------------
-POLL_INTERVAL_SECONDS = 300    # how often to check the Excel file (every 5 minutes)
+POLL_INTERVAL_SECONDS = 10    # check every 10 seconds
 
 # -- Webhook (for receiving client replies) ------------------------------------
-# Set ENABLE_WEBHOOK = True only if you have a public URL for your server.
-# When False the script runs in send-only mode and "Client Replies" sheet
-# stays empty until you enable the webhook.
-ENABLE_WEBHOOK       = False
+ENABLE_WEBHOOK       = True
 WEBHOOK_HOST         = "0.0.0.0"
-WEBHOOK_PORT         = 5000
-WEBHOOK_VERIFY_TOKEN = "YOUR_WEBHOOK_VERIFY_TOKEN"  # any secret string you choose
+WEBHOOK_PORT         = 3000
+WEBHOOK_VERIFY_TOKEN = "ek-thky-sedsk-578-as"
