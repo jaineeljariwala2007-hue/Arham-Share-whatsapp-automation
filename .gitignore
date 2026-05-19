@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+data/inactive_clients.xlsx
+data/message_log.xlsx
+logs/*.log
