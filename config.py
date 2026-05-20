@@ -12,7 +12,7 @@ TEMPLATE_NAME     = "reactivate_account"
 TEMPLATE_LANGUAGE = "en_US"
 
 # -- File Paths ---------------------------------------------------------------
-INACTIVE_CLIENTS_FILE = "inactive_clients.xlsx"    # Excel file your team updates
+INACTIVE_CLIENTS_FILE = r"C:\Users\Jaineel\Downloads\inactive_clients.xlsx"    # Excel file your team updates
 MESSAGE_LOG_FILE      = "data/message_log.xlsx"    # auto-created by the script
 
 # Column names in inactive_clients.xlsx (case-sensitive)
