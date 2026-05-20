@@ -16,8 +16,11 @@ def _read_clients(path: str) -> pd.DataFrame:
     try:
         df = pd.read_excel(path, dtype=str)
         df.columns = df.columns.str.strip()
+        logger.info("Excel columns found: %s", list(df.columns))
+        logger.info("Total rows before filter: %d", len(df))
         df = df.dropna(subset=[config.COL_CLIENT_NAME, config.COL_PHONE_NUMBER])
         df[config.COL_PHONE_NUMBER] = df[config.COL_PHONE_NUMBER].str.strip()
+        logger.info("Total rows after filter: %d", len(df))
         return df.reset_index(drop=True)
     except FileNotFoundError:
         logger.warning("Inactive clients file not found: %s", path)
@@ -41,6 +44,7 @@ class ExcelMonitor:
         new_clients = []
         for _, row in df.iterrows():
             phone = row[config.COL_PHONE_NUMBER]
+            logger.info("Checking phone: '%s' | already seen: %s", phone, phone in self._seen_phones)
             if phone not in self._seen_phones:
                 new_clients.append(row.to_dict())
 
