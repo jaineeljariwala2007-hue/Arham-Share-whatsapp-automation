@@ -10,13 +10,6 @@ import config
 
 logger = logging.getLogger(__name__)
 
-_SESSION = requests.Session()
-_SESSION.headers.update({
-    "Authorization": f"Bearer {config.ACCESS_TOKEN}",
-    "Content-Type": "application/json",
-})
-
-
 def send_template_message(phone: str, client_name: str) -> bool:
     """
     Send the reactivation template to phone.
@@ -24,6 +17,10 @@ def send_template_message(phone: str, client_name: str) -> bool:
     """
     clean_phone = phone.lstrip("+")
     url = config.WHATSAPP_API_URL.format(phone_number_id=config.PHONE_NUMBER_ID)
+    headers = {
+        "Authorization": f"Bearer {config.ACCESS_TOKEN}",
+        "Content-Type": "application/json",
+    }
 
     payload = {
         "messaging_product": "whatsapp",
@@ -44,7 +41,7 @@ def send_template_message(phone: str, client_name: str) -> bool:
     }
 
     try:
-        resp = _SESSION.post(url, json=payload, timeout=30)
+        resp = requests.post(url, json=payload, headers=headers, timeout=30)
         resp.raise_for_status()
         data = resp.json()
         msg_id = data.get("messages", [{}])[0].get("id", "unknown")
