@@ -5,10 +5,10 @@ Central configuration. Fill in all REQUIRED values before running.
 # -- WhatsApp Business API ---------------------------------------------------
 WHATSAPP_API_URL = "https://graph.facebook.com/v25.0/{phone_number_id}/messages"
 PHONE_NUMBER_ID  = "1021459374381952"
-ACCESS_TOKEN     = "EAAfgWi8ZAFuIBRQXI3NePcoZAL5EVUilgyZAXpkCQImyknX0eZAw8504XsGgsRvNZBlBcDEb3SNeuJ6GMGLEL4lQznuH9bymABCAcAPyZCpZAGXB4bUwcW4SZCiOeHmNnjYZAH1xZBIsR0sLXsA8zX2cyNXTP42rMgJKfNQOlNBqjTZCBctYcGfIxaAks6EvmVE6RLmZCFVe0IIRFel6UEBqAiM22XVKeQkdTVn5MdZBG11maZB1VQi6bwRiMc6UPkadasdgOOQHGY3ZC5wDfYjIR0SyioZBmmQH2auLhE49qQZDZD"
+ACCESS_TOKEN     = "EAAfgWi8ZAFuIBRkm1Ikk0rn9ACTXtqgZBV1RhXhKpJZAqKZAAIwUcbdmJ7XwVJxLbZA2GzTZCOOhySK4iz02eqFdSUJBVj1t7pA1wO9skBqgmMGaHSsBISa1hTN2GLlG1gs8fsaqwzeGDulDyKCDKzdLbYX7KYnIe7Ko7QhZCl5HQ9MqlDAVBtzJzxudYusWk82TfHxDfxHfqArvBvk8Yd181fW6PmghZArDAe7JNmZBOWYXHzZAc1cBvTDkA02wQzibM3ToelYZBGZByeyYnKdqCZAV9LNAvrU8trR8HsQZDZD"
 
 # Template details (must be approved in Meta Business Manager)
-TEMPLATE_NAME     = "reactivate_account"
+TEMPLATE_NAME     = "hello_world"
 TEMPLATE_LANGUAGE = "en_US"
 
 # -- File Paths ---------------------------------------------------------------
