@@ -53,7 +53,11 @@ def main() -> None:
                 name    = client[config.COL_CLIENT_NAME]
                 phone   = client[config.COL_PHONE_NUMBER]
                 success = whatsapp_sender.send_template_message(phone, name)
-                message_logger.log_sent(name, phone, "Sent" if success else "Failed")
+                if success:
+                    monitor.mark_sent(phone)
+                    message_logger.log_sent(name, phone, "Sent")
+                else:
+                    message_logger.log_sent(name, phone, "Failed")
         except Exception as exc:
             logger.error("Unexpected error in polling loop: %s", exc, exc_info=True)
 

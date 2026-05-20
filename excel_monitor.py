@@ -42,7 +42,9 @@ class ExcelMonitor:
         for _, row in df.iterrows():
             phone = row[config.COL_PHONE_NUMBER]
             if phone not in self._seen_phones:
-                self._seen_phones.add(phone)
                 new_clients.append(row.to_dict())
 
         return new_clients
+
+    def mark_sent(self, phone: str) -> None:
+        self._seen_phones.add(phone)

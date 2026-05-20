@@ -47,7 +47,8 @@ def load_already_messaged() -> set[str]:
     _ensure_log_file()
     try:
         df = pd.read_excel(config.MESSAGE_LOG_FILE, sheet_name="Messages Sent", dtype=str)
-        return set(df["Phone Number"].dropna().str.strip().tolist())
+        sent = df[df["Status"].str.strip() == "Sent"]
+        return set(sent["Phone Number"].dropna().str.strip().tolist())
     except Exception as exc:
         logger.error("Could not read messaged phones: %s", exc)
         return set()
